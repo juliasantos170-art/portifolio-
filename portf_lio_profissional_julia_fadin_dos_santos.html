@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julia Fadin dos Santos | Portfólio Profissional</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Plus Jakarta Sans & Fira Code -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        mono: ['"Fira Code"', 'monospace'],
+                    },
+                    colors: {
+                        darkBg: '#090514',
+                        cardBg: '#120b24',
+                        purpleGlow: '#8b5cf6',
+                        purpleVibrant: '#a855f7',
+                        purpleDeep: '#4c1d95',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #090514;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        /* Efeito de brilho roxo de fundo */
+        .bg-grid-pattern {
+            background-image: radial-gradient(rgba(139, 92, 246, 0.14) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+
+        .glass-card {
+            background: rgba(20, 13, 41, 0.72);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(168, 85, 247, 0.55);
+            box-shadow: 0 12px 35px -8px rgba(139, 92, 246, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .purple-gradient-text {
+            background: linear-gradient(135deg, #c084fc 0%, #9333ea 50%, #e879f9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn-purple-glow {
+            background: linear-gradient(135deg, #7c3aed 0%, #9333ea 100%);
+            box-shadow: 0 0 22px rgba(147, 51, 234, 0.45);
+            transition: all 0.3s ease;
+        }
+
+        .btn-purple-glow:hover {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.7);
+            transform: translateY(-2px);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-float {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .animate-float-delayed {
+            animation: float 6s ease-in-out 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-grid-pattern antialiased selection:bg-purple-600 selection:text-white">
+
+    <!-- Luzes ambientes decorativas -->
+    <div class="fixed top-[-10%] left-[-10%] w-[450px] h-[450px] bg-purple-700/20 rounded-full blur-[130px] pointer-events-none z-0"></div>
+    <div class="fixed bottom-[10%] right-[-5%] w-[400px] h-[400px] bg-fuchsia-700/15 rounded-full blur-[130px] pointer-events-none z-0"></div>
+
+    <!-- Barra de Navegação Superior -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#090514]/80 border-b border-purple-500/15">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#inicio" class="flex items-center gap-2.5 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-600 to-fuchsia-600 flex items-center justify-center shadow-lg shadow-purple-600/30 group-hover:scale-105 transition">
+                        <i class="fa-solid fa-code text-white text-sm"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-tight text-white">Julia<span class="text-purple-400">.dev</span></span>
+                </a>
+
+                <!-- Links de Acesso (Desktop) -->
+                <nav class="hidden md:flex items-center gap-1 lg:gap-2 bg-purple-950/30 border border-purple-500/20 px-3 py-1.5 rounded-full">
+                    <a href="#inicio" class="px-3.5 py-1.5 text-sm font-medium text-purple-200 hover:text-white hover:bg-purple-600/25 rounded-full transition">Início</a>
+                    <a href="#objetivos" class="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-purple-600/25 rounded-full transition">Objetivos</a>
+                    <a href="#qualificacoes" class="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-purple-600/25 rounded-full transition">Qualificações</a>
+                    <a href="#formacao" class="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-purple-600/25 rounded-full transition">Formação</a>
+                    <a href="#experiencia" class="px-3.5 py-1.5 text-sm font-medium text-slate-300 hover:text-white hover:bg-purple-600/25 rounded-full transition">Experiência</a>
+                </nav>
+
+                <!-- Botão Contato & Menu Mobile -->
+                <div class="flex items-center gap-3">
+                    <button onclick="openContactModal()" class="btn-purple-glow px-5 py-2.5 rounded-xl text-sm font-semibold text-white flex items-center gap-2 cursor-pointer">
+                        <span>Contato</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </button>
+                    <button id="mobile-menu-btn" aria-label="Abrir Menu" class="md:hidden p-2.5 rounded-xl bg-purple-950/50 border border-purple-500/30 text-purple-200 hover:text-white">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0e0820] border-b border-purple-500/20 px-4 pt-2 pb-5 space-y-1.5">
+            <a href="#inicio" class="mobile-link block px-4 py-2.5 rounded-xl text-sm font-medium text-white bg-purple-600/20">Início</a>
+            <a href="#objetivos" class="mobile-link block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-purple-600/15 hover:text-white">Objetivos Profissionais</a>
+            <a href="#qualificacoes" class="mobile-link block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-purple-600/15 hover:text-white">Qualificações</a>
+            <a href="#formacao" class="mobile-link block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-purple-600/15 hover:text-white">Formação -- Cursos</a>
+            <a href="#experiencia" class="mobile-link block px-4 py-2.5 rounded-xl text-sm font-medium text-slate-300 hover:bg-purple-600/15 hover:text-white">Experiência</a>
+        </div>
+    </header>
+
+    <main class="relative z-10">
+
+        <!-- SEÇÃO 1: TELA INICIAL (HERO) -->
+        <section id="inicio" class="pt-12 pb-20 lg:pt-20 lg:pb-28 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Coluna Esquerda: Apresentação Principal -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-950/70 border border-purple-500/35 text-purple-300 text-xs font-semibold tracking-wider uppercase">
+                        <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+                        17 Anos • Jovem Aprendiz & Estágio
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.12] text-white">
+                        Olá, eu sou <br>
+                        <span class="purple-gradient-text">Julia Fadin dos Santos</span>
+                    </h1>
+
+                    <p class="text-lg sm:text-xl font-semibold text-purple-200 flex items-center gap-2.5">
+                        <i class="fa-solid fa-laptop-code text-purple-400"></i>
+                        Estudante de Técnico em Informática para Internet
+                    </p>
+
+                    <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl">
+                        Unindo formação técnica em tecnologia com experiência prática em rotinas administrativas. Comprometida, organizada e pronta para contribuir com dedicação e vontade constante de aprender.
+                    </p>
+
+                    <!-- Botões de Acesso Rápido -->
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#objetivos" class="btn-purple-glow px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-white inline-flex items-center gap-2.5">
+                            <span>Meus Objetivos</span>
+                            <i class="fa-solid fa-arrow-right text-xs"></i>
+                        </a>
+                        <a href="#qualificacoes" class="px-6 py-3.5 rounded-xl text-sm sm:text-base font-semibold text-purple-200 bg-purple-950/40 border border-purple-500/35 hover:bg-purple-900/50 hover:border-purple-400 transition inline-flex items-center gap-2.5">
+                            <i class="fa-solid fa-star text-purple-400 text-xs"></i>
+                            <span>Ver Qualificações</span>
+                        </a>
+                    </div>
+
+                    <!-- Mini Barra de Tecnologias / Ferramentas -->
+                    <div class="pt-6 border-t border-purple-500/15">
+                        <p class="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-3">Áreas de Interesse & Ferramentas</p>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-3.5 py-2 rounded-xl bg-[#140d29] border border-purple-500/25 text-xs font-medium text-purple-200 flex items-center gap-2">
+                                <i class="fa-brands fa-html5 text-orange-400 text-sm"></i> Web & Internet
+                            </span>
+                            <span class="px-3.5 py-2 rounded-xl bg-[#140d29] border border-purple-500/25 text-xs font-medium text-purple-200 flex items-center gap-2">
+                                <i class="fa-solid fa-file-excel text-emerald-400 text-sm"></i> Excel Básico
+                            </span>
+                            <span class="px-3.5 py-2 rounded-xl bg-[#140d29] border border-purple-500/25 text-xs font-medium text-purple-200 flex items-center gap-2">
+                                <i class="fa-solid fa-folder-open text-purple-400 text-sm"></i> Rotinas Administrativas
+                            </span>
+                            <span class="px-3.5 py-2 rounded-xl bg-[#140d29] border border-purple-500/25 text-xs font-medium text-purple-200 flex items-center gap-2">
+                                <i class="fa-solid fa-scanner text-fuchsia-400 text-sm"></i> Digitalização
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Direita: Avatar Padrão Minimalista em Roxo Claro -->
+                <div class="lg:col-span-5 relative flex items-center justify-center">
+                    <div class="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 flex items-center justify-center">
+                        <!-- Brilho ambiente suave em roxo claro -->
+                        <div class="absolute inset-0 bg-purple-400/25 rounded-full blur-2xl"></div>
+
+                        <!-- Avatar Genérico Sem Foto em Roxo Claro -->
+                        <div class="relative w-full h-full rounded-3xl bg-purple-300/20 border-2 border-purple-300/40 backdrop-blur-md shadow-2xl shadow-purple-900/40 overflow-hidden flex items-end justify-center">
+                            <svg class="w-full h-full" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Avatar de perfil">
+                                <!-- Fundo lilás/roxo claro suave -->
+                                <rect width="200" height="200" fill="#DDD6FE" fill-opacity="0.22"/>
+                                <!-- Cabeça (círculo centralizado) -->
+                                <circle cx="100" cy="78" r="34" fill="#F3E8FF"/>
+                                <!-- Ombros / Tronco (semicírculo na base) -->
+                                <path d="M36 200C36 164.654 64.6538 136 100 136C135.346 136 164 164.654 164 200H36Z" fill="#F3E8FF"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: INFORMAÇÕES PESSOAIS & OBJETIVOS PROFISSIONAIS -->
+        <section id="objetivos" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="glass-card rounded-3xl p-7 sm:p-10 relative overflow-hidden">
+                <!-- Detalhe decorativo lateral -->
+                <div class="absolute top-0 left-0 w-1.5 h-full bg-gradient-to-b from-purple-500 via-fuchsia-500 to-indigo-600"></div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    <!-- Dados Pessoais -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <span class="inline-block text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-950/70 px-3.5 py-1 rounded-full border border-purple-500/30">
+                            Informações Pessoais
+                        </span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+                            Perfil & <span class="purple-gradient-text">Objetivos Profissionais</span>
+                        </h2>
+                        <ul class="space-y-3 pt-2 text-sm sm:text-base">
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <span class="w-8 h-8 rounded-lg bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
+                                    <i class="fa-solid fa-user text-xs"></i>
+                                </span>
+                                <span><strong class="text-white">Nome:</strong> Julia Fadin dos Santos</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <span class="w-8 h-8 rounded-lg bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
+                                    <i class="fa-solid fa-cake-candles text-xs"></i>
+                                </span>
+                                <span><strong class="text-white">Idade:</strong> 17 anos</span>
+                            </li>
+                            <li class="flex items-center gap-3 text-slate-300">
+                                <span class="w-8 h-8 rounded-lg bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400 shrink-0">
+                                    <i class="fa-solid fa-laptop text-xs"></i>
+                                </span>
+                                <span><strong class="text-white">Área:</strong> Técnico em Informática para Internet</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Objetivo Profissional em Destaque -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-[#0c071c]/90 border border-purple-500/30 rounded-2xl p-6 sm:p-8 relative">
+                            <i class="fa-solid fa-quote-left text-3xl text-purple-500/30 absolute top-5 right-6"></i>
+                            <div class="flex items-center gap-2.5 text-purple-300 font-semibold text-sm mb-3">
+                                <i class="fa-solid fa-bullseye text-purple-400"></i>
+                                <span>Objetivo Profissional</span>
+                            </div>
+                            <p class="text-slate-200 text-base sm:text-lg leading-relaxed font-medium">
+                                "Busco oportunidade de emprego como <span class="text-purple-300 font-semibold">Jovem Aprendiz</span> ou <span class="text-purple-300 font-semibold">Estagiária</span>, visando desenvolver habilidades profissionais e contribuir com dedicação e vontade de aprender para o crescimento da empresa."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 3: QUALIFICAÇÕES -->
+        <section id="qualificacoes" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-950/70 px-3.5 py-1 rounded-full border border-purple-500/30 mb-3">
+                    Competências & Habilidades
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                    Minhas <span class="purple-gradient-text">Qualificações</span>
+                </h2>
+                <p class="text-slate-400 text-sm sm:text-base mt-3">
+                    Habilidades interpessoais, administrativas e conhecimentos técnicos adquiridos na prática e nos estudos.
+                </p>
+            </div>
+
+            <!-- Grid de Cards de Qualificações com Barras Visuais -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl mb-4">
+                            <i class="fa-solid fa-people-group"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Trabalho em Equipe & Comunicação</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            Facilidade em trabalhar em equipe e boa comunicação para colaborar com colegas e atender pessoas com clareza.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1.5">
+                            <span class="text-purple-300">Competência Interpessoal</span>
+                            <span class="text-white">Destaque</span>
+                        </div>
+                        <div class="w-full h-2 bg-purple-950 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-purple-600 to-fuchsia-500 rounded-full w-[95%]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-fuchsia-600/20 border border-fuchsia-500/30 flex items-center justify-center text-fuchsia-400 text-xl mb-4">
+                            <i class="fa-solid fa-list-check"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Organização & Proatividade</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            Habilidade em organização de rotinas e proatividade para antecipar demandas e manter processos em ordem.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1.5">
+                            <span class="text-purple-300">Gestão de Rotina</span>
+                            <span class="text-white">Destaque</span>
+                        </div>
+                        <div class="w-full h-2 bg-purple-950 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-purple-600 to-fuchsia-500 rounded-full w-[95%]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-indigo-600/20 border border-indigo-500/30 flex items-center justify-center text-indigo-400 text-xl mb-4">
+                            <i class="fa-solid fa-rocket"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Aprendizado Contínuo</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            Vontade de aprender e desenvolver novas competências, com total disposição para adquirir conhecimentos.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1.5">
+                            <span class="text-purple-300">Dedicação & Evolução</span>
+                            <span class="text-white">100%</span>
+                        </div>
+                        <div class="w-full h-2 bg-purple-950 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-purple-600 to-fuchsia-500 rounded-full w-full"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-purple-600/20 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl mb-4">
+                            <i class="fa-solid fa-file-pdf"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Digitalização de Documentos</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            Conhecimento básico em digitalização de documentos, arquivamento digital e suporte administrativo.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1.5">
+                            <span class="text-purple-300">Nível Básico / Prático</span>
+                            <span class="text-white">75%</span>
+                        </div>
+                        <div class="w-full h-2 bg-purple-950 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-purple-600 to-fuchsia-500 rounded-full w-[75%]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-emerald-600/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl mb-4">
+                            <i class="fa-solid fa-table"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Microsoft Excel</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            Conhecimento básico em Excel para organização de dados, controle de tabelas e apoio administrativo.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1.5">
+                            <span class="text-purple-300">Nível Básico</span>
+                            <span class="text-white">70%</span>
+                        </div>
+                        <div class="w-full h-2 bg-purple-950 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-purple-600 to-fuchsia-500 rounded-full w-[70%]"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="glass-card rounded-2xl p-6 flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-fuchsia-600/20 border border-fuchsia-500/30 flex items-center justify-center text-fuchsia-400 text-xl mb-4">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">Informática para Internet</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-5">
+                            Formação técnica em andamento no SENAI com foco em fundamentos web, lógica e ferramentas digitais.
+                        </p>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-semibold mb-1.5">
+                            <span class="text-purple-300">Em Formação (SENAI)</span>
+                            <span class="text-white">80%</span>
+                        </div>
+                        <div class="w-full h-2 bg-purple-950 rounded-full overflow-hidden">
+                            <div class="h-full bg-gradient-to-r from-purple-600 to-fuchsia-500 rounded-full w-[80%]"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SEÇÃO 4: FORMAÇÃO -- CURSOS -->
+        <section id="formacao" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-950/70 px-3.5 py-1 rounded-full border border-purple-500/30 mb-3">
+                    Trajetória Acadêmica
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white uppercase tracking-tight">
+                    FORMAÇÃO <span class="purple-gradient-text">-- CURSOS</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Formação 1: Ensino Médio -->
+                <div class="glass-card rounded-3xl p-7 relative overflow-hidden group">
+                    <div class="flex items-start justify-between gap-4 mb-5">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600/30 to-indigo-600/30 border border-purple-500/40 flex items-center justify-center text-purple-300 text-2xl">
+                            <i class="fa-solid fa-school"></i>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                            Em andamento
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Ensino Médio — 2º Ano</h3>
+                    <p class="text-purple-300 font-semibold text-sm flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-location-dot text-purple-400"></i>
+                        Escola Jacó Anderle
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Cursando o 2º ano do Ensino Médio regular com dedicação e assiduidade.
+                    </p>
+                </div>
+
+                <!-- Formação 2: Curso Técnico SENAI -->
+                <div class="glass-card rounded-3xl p-7 relative overflow-hidden group">
+                    <div class="flex items-start justify-between gap-4 mb-5">
+                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-fuchsia-600/30 to-purple-600/30 border border-fuchsia-500/40 flex items-center justify-center text-fuchsia-300 text-2xl">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-300 border border-amber-500/30">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                            Em andamento
+                        </span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-1">Curso Técnico em Informática para Internet</h3>
+                    <p class="text-purple-300 font-semibold text-sm flex items-center gap-2 mb-3">
+                        <i class="fa-solid fa-building-columns text-purple-400"></i>
+                        SENAI
+                    </p>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Formação técnica voltada ao desenvolvimento web, tecnologia da informação e ferramentas digitais.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO 5: EXPERIÊNCIA -->
+        <section id="experiencia" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="inline-block text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-950/70 px-3.5 py-1 rounded-full border border-purple-500/30 mb-3">
+                    Vivência Prática
+                </span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                    Minha <span class="purple-gradient-text">Experiência</span>
+                </h2>
+            </div>
+
+            <!-- Timeline Card da Experiência -->
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-card rounded-3xl p-7 sm:p-9 border border-purple-500/30 relative">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-purple-500/20">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-600 to-fuchsia-600 flex items-center justify-center text-white text-2xl shadow-lg shadow-purple-600/30 shrink-0">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <div>
+                                <div class="flex flex-wrap items-center gap-2 mb-1">
+                                    <span class="text-xs font-bold uppercase tracking-wider text-purple-300 bg-purple-950 px-3 py-0.5 rounded-full border border-purple-500/30">
+                                        2026
+                                    </span>
+                                    <span class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-300 bg-emerald-950/70 border border-emerald-500/30 px-3 py-0.5 rounded-full">
+                                        <i class="fa-solid fa-circle-check text-[10px]"></i> Concluído
+                                    </span>
+                                </div>
+                                <h3 class="text-xl sm:text-2xl font-bold text-white">Estágio Administrativo</h3>
+                                <p class="text-purple-300 font-medium text-sm">E.E.M. Jacó Anderle</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <p class="text-xs font-bold uppercase tracking-wider text-slate-400">Principais Atividades Desenvolvidas:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="bg-[#0c071c]/80 border border-purple-500/20 rounded-2xl p-4 flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-purple-600/20 text-purple-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-headset text-sm"></i>
+                                </div>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    Atendimento a clientes internos e externos pessoalmente e por telefone.
+                                </p>
+                            </div>
+                            <div class="bg-[#0c071c]/80 border border-purple-500/20 rounded-2xl p-4 flex items-start gap-3">
+                                <div class="w-8 h-8 rounded-lg bg-fuchsia-600/20 text-fuchsia-400 flex items-center justify-center shrink-0 mt-0.5">
+                                    <i class="fa-solid fa-folder-tree text-sm"></i>
+                                </div>
+                                <p class="text-slate-300 text-sm leading-relaxed">
+                                    Organização de documentos e apoio em atividades administrativas diversas.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO FINAL: CHAMADA PARA CONTATO -->
+        <section class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div class="rounded-3xl bg-gradient-to-r from-purple-900/50 via-[#190d36] to-fuchsia-900/40 border border-purple-500/35 p-8 sm:p-12 text-center relative overflow-hidden">
+                <div class="max-w-2xl mx-auto space-y-5 relative z-10">
+                    <span class="inline-block text-xs font-bold uppercase tracking-widest text-purple-300 bg-purple-950/80 px-4 py-1.5 rounded-full border border-purple-400/30">
+                        Pronta para novos desafios
+                    </span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+                        Vamos conversar sobre uma oportunidade?
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base">
+                        Estou à disposição para entrevistas e processos seletivos de Jovem Aprendiz ou Estágio.
+                    </p>
+                    <div class="pt-2 flex flex-wrap justify-center gap-4">
+                        <button onclick="openContactModal()" class="btn-purple-glow px-7 py-3.5 rounded-xl font-semibold text-white inline-flex items-center gap-2.5 cursor-pointer">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Entrar em Contato</span>
+                        </button>
+                        <button onclick="copySummary()" class="px-6 py-3.5 rounded-xl font-semibold text-purple-200 bg-purple-950/60 border border-purple-400/30 hover:bg-purple-900/60 transition inline-flex items-center gap-2 cursor-pointer">
+                            <i class="fa-regular fa-copy"></i>
+                            <span>Copiar Resumo do Currículo</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="border-t border-purple-500/15 bg-[#06030e] py-8 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
+            <div class="flex items-center gap-2">
+                <span class="font-bold text-white">Julia<span class="text-purple-400">.dev</span></span>
+                <span>•</span>
+                <span>© 2026 Julia Fadin dos Santos</span>
+            </div>
+            <div class="flex items-center gap-5">
+                <a href="#inicio" class="hover:text-purple-300 transition">Início</a>
+                <a href="#objetivos" class="hover:text-purple-300 transition">Objetivos</a>
+                <a href="#qualificacoes" class="hover:text-purple-300 transition">Qualificações</a>
+                <a href="#formacao" class="hover:text-purple-300 transition">Formação</a>
+                <a href="#experiencia" class="hover:text-purple-300 transition">Experiência</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Contato Interativo -->
+    <div id="contact-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+        <div class="glass-card bg-[#130b29] border border-purple-400/40 rounded-3xl max-w-md w-full p-6 sm:p-8 relative">
+            <button onclick="closeContactModal()" aria-label="Fechar" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-purple-950/80 text-purple-200 hover:text-white flex items-center justify-center cursor-pointer">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="w-12 h-12 rounded-2xl bg-purple-600/25 border border-purple-400/40 flex items-center justify-center text-purple-300 text-xl mb-4">
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-1">Contato Profissional</h3>
+            <p class="text-slate-400 text-sm mb-5">
+                Julia Fadin dos Santos • 17 anos <br>
+                Estudante de Técnico em Informática para Internet (SENAI)
+            </p>
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-purple-300 mb-1.5">Seu Nome ou Empresa</label>
+                    <input type="text" required placeholder="Ex: RH Empresa Tech" class="w-full px-4 py-3 rounded-xl bg-[#090514] border border-purple-500/30 text-white text-sm focus:outline-none focus:border-purple-400">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold uppercase tracking-wider text-purple-300 mb-1.5">Mensagem / Oportunidade</label>
+                    <textarea rows="3" required placeholder="Olá Julia, gostaríamos de conversar sobre uma vaga..." class="w-full px-4 py-3 rounded-xl bg-[#090514] border border-purple-500/30 text-white text-sm focus:outline-none focus:border-purple-400"></textarea>
+                </div>
+                <button type="submit" class="w-full btn-purple-glow py-3.5 rounded-xl font-semibold text-white text-sm cursor-pointer">
+                    Enviar Mensagem
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Notificação Toast -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden items-center gap-3 px-5 py-3.5 rounded-2xl bg-[#1a0f36] border border-purple-400/50 text-white text-sm font-medium shadow-2xl">
+        <i class="fa-solid fa-circle-check text-emerald-400 text-lg"></i>
+        <span id="toast-message">Ação realizada com sucesso!</span>
+    </div>
+
+    <script>
+        // Menu Mobile Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Controle do Modal de Contato
+        const modal = document.getElementById('contact-modal');
+
+        function openContactModal() {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeContactModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeContactModal();
+        });
+
+        // Toast Feedback
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            toastMsg.textContent = msg;
+            toast.classList.remove('hidden');
+            toast.classList.add('flex');
+            setTimeout(() => {
+                toast.classList.add('hidden');
+                toast.classList.remove('flex');
+            }, 3500);
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            closeContactModal();
+            e.target.reset();
+            showToast('Mensagem registrada! Obrigada pelo interesse.');
+        }
+
+        // Copiar Resumo do Portfólio
+        function copySummary() {
+            const summaryText = `JULIA FADIN DOS SANTOS | 17 anos
+Estudante de Técnico em Informática para Internet (SENAI)
+
+OBJETIVO PROFISSIONAL:
+Busco oportunidade de emprego como Jovem Aprendiz ou Estagiária, visando desenvolver habilidades profissionais e contribuir com dedicação e vontade de aprender para o crescimento da empresa.
+
+QUALIFICAÇÕES:
+- Facilidade em trabalhar em equipe e boa comunicação
+- Habilidade em organização e proatividade
+- Vontade de aprender e desenvolver novas competências
+- Conhecimento básico em digitalização de documentos e Excel
+
+FORMAÇÃO:
+- Ensino Médio (2º Ano) - Escola Jacó Anderle (Em andamento)
+- Curso Técnico em Informática para Internet - SENAI (Em andamento)
+
+EXPERIÊNCIA:
+- 2026 | E.E.M. Jacó Anderle - Estágio Administrativo (Concluído): Atendimento a clientes internos e externos pessoalmente e por telefone; organização de documentos e apoio em atividades administrativas.`;
+
+            const tempTextarea = document.createElement('textarea');
+            tempTextarea.value = summaryText;
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            try {
+                document.execCommand('copy');
+                showToast('Resumo do currículo copiado para a área de transferência!');
+            } catch (err) {
+                showToast('Não foi possível copiar automaticamente.');
+            }
+            document.body.removeChild(tempTextarea);
+        }
+    </script>
+</body>
+</html>
